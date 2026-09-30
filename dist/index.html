@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Big C Pawn | Pawn, Sell & Shop in Edmonton</title>
+  <meta name="description" content="A conversion-focused homepage redesign concept for Big C Pawn in Edmonton.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c9162b'/%3E%3Cpath d='M42 18c-3-3-7-5-12-5-10 0-18 8-18 19s8 19 18 19c5 0 9-2 12-5l-6-7c-2 2-4 3-7 3-5 0-9-4-9-10s4-10 9-10c3 0 5 1 7 3z' fill='white'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink: #111114;
+      --paper: #f5f2ed;
+      --white: #fff;
+      --red: #c9162b;
+      --red-dark: #981020;
+      --gold: #f1bf62;
+      --muted: #6d6a68;
+      --line: rgba(17,17,20,.13);
+      --shadow: 0 26px 80px rgba(17,17,20,.16);
+      --display: "Barlow Condensed", Impact, sans-serif;
+      --body: "DM Sans", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--body); font-size: 16px; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    img { display: block; max-width: 100%; }
+    .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .concept-bar { background: var(--ink); color: #e9e5df; text-align: center; padding: 8px 16px; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+    .utility { background: var(--red); color: white; font-size: .82rem; font-weight: 700; }
+    .utility .wrap { min-height: 36px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .utility__group { display: flex; gap: 24px; align-items: center; }
+    .utility a:hover { text-decoration: underline; }
+    .site-header { position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); }
+    .nav { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand img { width: 188px; height: auto; }
+    .nav__links { display: flex; align-items: center; gap: 30px; font-weight: 700; }
+    .nav__links a:not(.btn) { position: relative; }
+    .nav__links a:not(.btn)::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -8px; height: 2px; background: var(--red); transition: right .2s ease; }
+    .nav__links a:hover::after { right: 0; }
+    .menu-button { display: none; border: 0; background: transparent; padding: 10px; font-weight: 800; }
+    .btn { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 0 22px; border: 2px solid transparent; border-radius: 3px; font-weight: 800; cursor: pointer; transition: transform .2s ease, background .2s ease, color .2s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn--red { background: var(--red); color: white; }
+    .btn--red:hover { background: var(--red-dark); }
+    .btn--light { background: white; color: var(--ink); }
+    .btn--outline { border-color: rgba(255,255,255,.65); color: white; }
+    .btn--outline-dark { border-color: var(--ink); color: var(--ink); }
+    .hero { position: relative; overflow: hidden; background: var(--ink); color: white; }
+    .hero::before { content: ""; position: absolute; width: 620px; height: 620px; right: -150px; top: -230px; border: 90px solid rgba(201,22,43,.4); border-radius: 50%; }
+    .hero::after { content: ""; position: absolute; inset: auto 0 0; height: 5px; background: linear-gradient(90deg, var(--red) 0 62%, var(--gold) 62%); }
+    .hero__grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.02fr .98fr; min-height: 640px; align-items: center; gap: 72px; padding: 72px 0 80px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 20px; color: var(--gold); font-size: .8rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 34px; height: 2px; background: currentColor; }
+    h1, h2, h3 { font-family: var(--display); text-transform: uppercase; line-height: .94; margin: 0; }
+    h1 { max-width: 760px; font-size: clamp(4.8rem, 8vw, 8rem); letter-spacing: -.035em; }
+    h1 em { color: var(--red); font-style: normal; }
+    .hero__copy > p { max-width: 600px; margin: 24px 0 30px; color: #cbc8c3; font-size: 1.1rem; }
+    .hero__buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero__proof { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.15); color: #d7d3ce; font-size: .88rem; }
+    .hero__proof span { display: flex; align-items: center; gap: 9px; }
+    .hero__proof span::before { content: "✓"; color: var(--gold); font-weight: 900; }
+    .showcase { position: relative; min-height: 510px; }
+    .showcase__backdrop { position: absolute; inset: 30px 0 0 46px; background: var(--red); transform: rotate(4deg); border-radius: 5px; }
+    .showcase__panel { position: absolute; inset: 0 34px 30px 0; overflow: hidden; background: white; color: var(--ink); border-radius: 5px; box-shadow: var(--shadow); }
+    .showcase__image { width: 100%; height: 360px; object-fit: cover; background: #e8e4df; }
+    .showcase__content { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 23px 26px; }
+    .showcase__content p { margin: 2px 0 0; color: var(--muted); font-size: .9rem; }
+    .showcase__content h2 { font-size: 2rem; }
+    .price { color: var(--red); font-family: var(--display); font-size: 2rem; font-weight: 800; white-space: nowrap; }
+    .new-tag { position: absolute; top: 22px; left: -9px; z-index: 2; padding: 7px 15px; background: var(--gold); color: var(--ink); font-size: .75rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+    .paths { position: relative; z-index: 4; margin-top: -34px; }
+    .paths__grid { display: grid; grid-template-columns: repeat(3,1fr); background: white; border-radius: 5px; box-shadow: var(--shadow); overflow: hidden; }
+    .path { position: relative; min-height: 196px; padding: 34px; border-right: 1px solid var(--line); transition: background .25s ease, color .25s ease; }
+    .path:last-child { border-right: 0; }
+    .path:hover { background: var(--red); color: white; }
+    .path__number { display: block; margin-bottom: 20px; color: var(--red); font-family: var(--display); font-size: 1rem; font-weight: 800; }
+    .path:hover .path__number { color: var(--gold); }
+    .path h2 { font-size: 2.3rem; }
+    .path p { margin: 8px 0 0; color: var(--muted); }
+    .path:hover p { color: #f1ece8; }
+    .path__link { display: inline-block; margin-top: 17px; font-size: .86rem; font-weight: 900; text-transform: uppercase; letter-spacing: .08em; }
+    .section { padding: 108px 0; }
+    .section__head { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 42px; }
+    .section__head h2, .estimate h2, .visit h2 { font-size: clamp(3.5rem, 6vw, 5.5rem); letter-spacing: -.025em; }
+    .section__head p { max-width: 480px; color: var(--muted); margin: 0; }
+    .steps { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--line); }
+    .step { padding: 34px 34px 0 0; }
+    .step__icon { width: 56px; height: 56px; display: grid; place-items: center; margin-bottom: 26px; background: var(--ink); color: white; border-radius: 50%; font-family: var(--display); font-size: 1.4rem; }
+    .step h3 { font-size: 1.8rem; }
+    .step p { color: var(--muted); max-width: 320px; }
+    .estimate { background: var(--red); color: white; }
+    .estimate__grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 80px; align-items: center; }
+    .estimate p { color: #f3d8dd; max-width: 500px; }
+    .estimate__note { margin-top: 28px; padding-left: 18px; border-left: 3px solid var(--gold); font-size: .9rem; }
+    .estimate-card { padding: 32px; background: white; color: var(--ink); border-radius: 5px; box-shadow: 0 30px 70px rgba(81,5,16,.3); }
+    .estimate-card h3 { margin-bottom: 22px; font-size: 2rem; }
+    .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    label { display: block; margin-bottom: 7px; font-size: .8rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
+    input, select { width: 100%; min-height: 50px; border: 1px solid #d6d0ca; border-radius: 3px; background: #faf9f7; padding: 0 14px; color: var(--ink); }
+    input:focus, select:focus, button:focus-visible, a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+    .estimate-card .btn { width: 100%; margin-top: 18px; }
+    .estimate-result { display: none; margin: 18px 0 0; padding: 14px; background: #f5f2ed; border-left: 3px solid var(--red); font-size: .9rem; }
+    .estimate-result.is-visible { display: block; }
+    .inventory { background: white; }
+    .product-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .product-card { border: 1px solid var(--line); background: white; transition: transform .2s ease, box-shadow .2s ease; }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 20px 45px rgba(17,17,20,.1); }
+    .product-card__image { position: relative; aspect-ratio: 1/1; overflow: hidden; background: #ede9e4; }
+    .product-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+    .product-card:hover img { transform: scale(1.035); }
+    .product-card__status { position: absolute; top: 14px; left: 14px; padding: 6px 10px; background: var(--ink); color: white; font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .product-card__body { padding: 22px; }
+    .product-card h3 { min-height: 54px; font-size: 1.6rem; line-height: 1.05; }
+    .product-card__meta { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--line); }
+    .product-card__meta span:first-child { color: var(--muted); font-size: .83rem; }
+    .product-card__meta strong { color: var(--red); font-size: 1.25rem; }
+    .visit { background: var(--ink); color: white; }
+    .visit__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .visit__card { padding: 38px; background: #1b1b20; border: 1px solid rgba(255,255,255,.12); }
+    .visit__row { display: flex; justify-content: space-between; gap: 30px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .visit__row:last-child { border-bottom: 0; }
+    .visit__row span:first-child { color: #aaa5a0; }
+    .visit__address { margin: 26px 0; color: #d6d1cc; font-size: 1.05rem; }
+    .visit__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    footer { padding: 34px 0; background: #0a0a0c; color: #9a9691; font-size: .82rem; }
+    footer .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    footer strong { color: white; }
+    @media (max-width: 900px) {
+      .nav__links { position: absolute; top: 82px; left: 0; right: 0; display: none; padding: 22px 20px; background: white; border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; gap: 18px; }
+      .nav__links.is-open { display: flex; }
+      .menu-button { display: block; }
+      .hero__grid { grid-template-columns: 1fr; gap: 50px; }
+      .showcase { min-height: 480px; }
+      .paths { margin-top: 0; }
+      .paths__grid, .estimate__grid, .visit__grid { grid-template-columns: 1fr; }
+      .path { border-right: 0; border-bottom: 1px solid var(--line); }
+      .estimate__grid, .visit__grid { gap: 44px; }
+    }
+    @media (max-width: 680px) {
+      .wrap { width: min(100% - 28px, 1180px); }
+      .concept-bar { font-size: .68rem; }
+      .utility__group:last-child { display: none; }
+      .utility .wrap { justify-content: center; }
+      .brand img { width: 158px; }
+      .nav { min-height: 72px; }
+      .nav__links { top: 72px; }
+      .hero__grid { min-height: auto; padding: 54px 0 64px; }
+      h1 { font-size: clamp(4.1rem, 22vw, 6rem); }
+      .hero__buttons .btn { width: 100%; }
+      .hero__proof { gap: 12px 20px; }
+      .showcase { min-height: 410px; }
+      .showcase__backdrop { inset: 18px 0 0 25px; }
+      .showcase__panel { inset: 0 18px 22px 0; }
+      .showcase__image { height: 265px; }
+      .showcase__content { padding: 18px; }
+      .showcase__content h2 { font-size: 1.55rem; }
+      .price { font-size: 1.5rem; }
+      .section { padding: 76px 0; }
+      .section__head { display: block; }
+      .section__head p { margin-top: 18px; }
+      .section__head h2, .estimate h2, .visit h2 { font-size: 3.6rem; }
+      .steps, .product-grid { grid-template-columns: 1fr; }
+      .step { padding-right: 0; }
+      .field-grid { grid-template-columns: 1fr; }
+      .estimate-card, .visit__card { padding: 24px; }
+      footer .wrap { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="concept-bar">Unofficial homepage redesign concept — prepared for Big C Pawn</div>
+  <div class="utility">
+    <div class="wrap">
+      <div class="utility__group"><span>4603–118 Ave NW, Edmonton</span><a href="tel:7807572944">780-757-2944</a></div>
+      <div class="utility__group"><span>Mon–Fri 10–9</span><span>Sat 12–8</span><span>Sun 10–6</span></div>
+    </div>
+  </div>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Big C Pawn home"><img src="https://www.bigcpawn.com/files/ecommerce/logo.png" alt="Big C Pawn"></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <div class="nav__links" id="nav-links">
+        <a href="#pawn">Pawn</a><a href="#sell">Sell</a><a href="#shop">Shop</a><a href="#how">How it works</a><a href="#visit">Visit</a>
+        <a class="btn btn--red" href="#estimate">Get an estimate</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero__grid wrap">
+        <div class="hero__copy">
+          <span class="eyebrow">Edmonton pawn shop</span>
+          <h1>Turn what you own into <em>cash.</em></h1>
+          <p>Pawn it, sell it, or find your next great deal. Start online, then visit our 118 Avenue store for a straightforward in-store evaluation.</p>
+          <div class="hero__buttons"><a class="btn btn--red" href="#estimate">Get a quick estimate</a><a class="btn btn--outline" href="#shop">Shop fresh finds</a></div>
+          <div class="hero__proof"><span>In-store evaluations</span><span>Inventory updated regularly</span><span>Local pickup</span></div>
+        </div>
+        <div class="showcase" aria-label="Featured item">
+          <div class="showcase__backdrop"></div><span class="new-tag">Fresh find</span>
+          <article class="showcase__panel">
+            <img class="showcase__image" src="https://www.bigcpawn.com/files/inventory/ebay/140095/1790797546-md.jpg" alt="10 karat gold necklace">
+            <div class="showcase__content"><div><h2>10kt gold necklace</h2><p>21.0g · Available in store</p></div><strong class="price">$1,999.99</strong></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="paths wrap" aria-label="Choose a service">
+      <div class="paths__grid">
+        <a class="path" id="pawn" href="#estimate"><span class="path__number">01 / Pawn</span><h2>Borrow against it</h2><p>Bring in an item and discuss your options with the team.</p><span class="path__link">Start an estimate</span></a>
+        <a class="path" id="sell" href="#estimate"><span class="path__number">02 / Sell</span><h2>Sell it outright</h2><p>Tell us what you have before making the trip to the store.</p><span class="path__link">Describe your item</span></a>
+        <a class="path" href="#shop"><span class="path__number">03 / Shop</span><h2>Find something rare</h2><p>Browse one-of-one jewelry, tools, tech, games and more.</p><span class="path__link">See new arrivals</span></a>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="wrap">
+        <div class="section__head"><div><span class="eyebrow" style="color:var(--red)">Simple by design</span><h2>From item to offer</h2></div><p>A clearer journey replaces crowded menus and gets visitors to the right action in seconds.</p></div>
+        <div class="steps">
+          <article class="step"><div class="step__icon">1</div><h3>Tell us what you have</h3><p>Choose a category and share a few basic details online.</p></article>
+          <article class="step"><div class="step__icon">2</div><h3>Visit the store</h3><p>Bring the item and valid identification for an in-person evaluation.</p></article>
+          <article class="step"><div class="step__icon">3</div><h3>Review your options</h3><p>Ask questions, understand the terms, and decide what works for you.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section estimate" id="estimate">
+      <div class="estimate__grid wrap">
+        <div><span class="eyebrow">Save a trip</span><h2>Start your estimate online</h2><p>Give the team a quick preview of your item. This concept demonstrates a lower-friction lead form that can connect to email or the store’s existing system.</p><p class="estimate__note">Online information is preliminary. Final values and eligibility are determined after an in-store inspection.</p></div>
+        <form class="estimate-card" id="estimate-form"><h3>What are you bringing in?</h3>
+          <div class="field-grid">
+            <div><label for="category">Item category</label><select id="category"><option>Jewelry or gold</option><option>Tools</option><option>Electronics</option><option>Gaming</option><option>Music gear</option><option>Other</option></select></div>
+            <div><label for="intent">I want to</label><select id="intent"><option>Pawn my item</option><option>Sell my item</option><option>Not sure yet</option></select></div>
+            <div><label for="brand">Brand or item name</label><input id="brand" placeholder="Example: DeWalt drill"></div>
+            <div><label for="condition">Condition</label><select id="condition"><option>Like new</option><option>Good</option><option>Fair</option><option>Not sure</option></select></div>
+          </div>
+          <button class="btn btn--red" type="submit">Continue estimate</button>
+          <p class="estimate-result" id="estimate-result" role="status">Great—this would continue to photo upload and contact details in the live website.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section inventory" id="shop">
+      <div class="wrap">
+        <div class="section__head"><div><span class="eyebrow" style="color:var(--red)">One-of-one inventory</span><h2>Fresh finds</h2></div><p>Real products from the current store, presented with cleaner photography, hierarchy and pickup information.</p></div>
+        <div class="product-grid">
+          <article class="product-card"><div class="product-card__image"><span class="product-card__status">Available</span><img loading="lazy" src="https://www.bigcpawn.com/files/inventory/ebay/156932/1789498674-md.jpg" alt="Nintendo GameCube bundle"></div><div class="product-card__body"><h3>Nintendo GameCube bundle</h3><div class="product-card__meta"><span>Games · Edmonton pickup</span><strong>$149.99</strong></div></div></article>
+          <article class="product-card"><div class="product-card__image"><span class="product-card__status">Available</span><img loading="lazy" src="https://www.bigcpawn.com/files/inventory/ebay/153398/1781896375-md.jpg" alt="Jackson seven-string guitar"></div><div class="product-card__body"><h3>Jackson 7-string guitar</h3><div class="product-card__meta"><span>Music gear · Edmonton pickup</span><strong>$799.99</strong></div></div></article>
+          <article class="product-card"><div class="product-card__image"><span class="product-card__status">Available</span><img loading="lazy" src="https://www.bigcpawn.com/files/inventory/ebay/155529/1788190777-md.jpg" alt="Powerfist shears"></div><div class="product-card__body"><h3>Powerfist shears</h3><div class="product-card__meta"><span>Tools · Edmonton pickup</span><strong>$39.99</strong></div></div></article>
+        </div>
+        <div style="margin-top:34px;text-align:center"><a class="btn btn--outline-dark" href="https://www.bigcpawn.com/home" target="_blank" rel="noopener">Browse current inventory</a></div>
+      </div>
+    </section>
+
+    <section class="section visit" id="visit">
+      <div class="visit__grid wrap">
+        <div><span class="eyebrow">Your neighbourhood pawn shop</span><h2>Visit Big C Pawn</h2><p class="visit__address">4603–118 Avenue NW<br>Edmonton, Alberta T5W 1B2</p><div class="visit__actions"><a class="btn btn--red" href="https://www.google.com/maps/dir/?api=1&destination=4603+118+Ave+NW+Edmonton+AB" target="_blank" rel="noopener">Get directions</a><a class="btn btn--outline" href="tel:7807572944">Call 780-757-2944</a></div></div>
+        <div class="visit__card" aria-label="Store hours"><h3>Store hours</h3><div class="visit__row"><span>Monday–Friday</span><strong>10 AM–9 PM</strong></div><div class="visit__row"><span>Saturday</span><strong>12 PM–8 PM</strong></div><div class="visit__row"><span>Sunday</span><strong>10 AM–6 PM</strong></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><span><strong>Big C Pawn homepage concept</strong> · Unofficial redesign for presentation purposes.</span><span>Concept prepared by [Your Name]</span></div></footer>
+  <script>
+    const menuButton = document.querySelector('.menu-button');
+    const navLinks = document.querySelector('#nav-links');
+    menuButton.addEventListener('click', () => { const open = navLinks.classList.toggle('is-open'); menuButton.setAttribute('aria-expanded', String(open)); });
+    navLinks.addEventListener('click', event => { if (event.target.closest('a')) { navLinks.classList.remove('is-open'); menuButton.setAttribute('aria-expanded', 'false'); } });
+    document.querySelector('#estimate-form').addEventListener('submit', event => { event.preventDefault(); document.querySelector('#estimate-result').classList.add('is-visible'); });
+  </script>
+</body>
+</html>
